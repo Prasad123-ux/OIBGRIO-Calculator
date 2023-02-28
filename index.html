@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"/>
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <!-- <h1>Standard -->
+        <h1 class="pos">Standard</h1>
+        <!-- <><b id="h">History</b> -->
+    </nav>
+    
+   <div class="back"> <input  type="text" id="prasad"></input></div>
+    <!-- <div class="local"></div -->
+    
+
+    <!-- <p id="pm">prasdamet</p> -->
+    <div class="container">
+        
+    <div class="row">
+       <button onclick="Back()" class="col-3" value = '%' id="demo"><b class="num"><i class="fa-solid fa-arrow-left"></i></b></button>
+        <button onclick="Clear()" id="demo1" value = 'CE'class="col-3"><b class="num">CE</b></button>
+        <button onclick="Back()" id="demo2" value = 'C' class="col-3"><b class="num">C</b></button> 
+        <button onclick="Solve('/') "id="demo7"  value = '/'class="col-3"><b class="num">/</b></button>
+        <!-- <button  onclick="Solve()" id="demo3" value ='*' class="col-3"><b class="num">*</b></button> -->
+    </div>
+    <div class="row">
+        <button onclick="Solve('0')" id="demo4"  value = '0 'class="col-3"><b class="num">0</b></button>
+        <button onclick="Solve('00')" id="demo5"  value = '00'class="col-3"><b class="num">00</b></button>
+        <button onclick="Solve('.')" id="demo6"  value = '.'class="col-3"><b class="num">.</b></button>
+        <button onclick="Solve('*')" id="demo3" value ='*' class="col-3"><b class="num">x</b></button>
+
+        <!-- <button onclick="Solve('/') "id="demo7"  value = '/'class="col-3"><b class="num">/</b></button> -->
+    </div>
+    <div class="row">
+        <button onclick="Solve('7')" id="demo8"  value = '7' class="col-3"><b class="num">7</b></button>
+        <button onclick="Solve('8')" id="demo8"  value = '8' class="col-3"><b class="num">8</b></button>
+        <button onclick="Solve('9')" id="demo9"  value = '9' class="col-3"><b class="num">9</b></button>
+        <button onclick="Solve('+')" id="demo11" value = '+' class="col-3"><b class="num">+</b></button>
+    </div>
+    <div class="row">
+        <button onclick="Solve('4')" id="demo12" value = '4' class="col-3"><b class="num">4</b></button>
+        <button onclick="Solve('5')" id="demo13" value = '5' class="col-3"><b class="num">5</b></button>
+        <button onclick="Solve('6')" id="demo14" value = '6' class="col-3"><b class="num">6</b></button>
+        <button onclick="Solve('-')" id="demo15" value = '-' class="col-3"><b class="num">-</b></button>
+    </div>
+    <div class="row">
+        <button onclick="Solve('1')" id="demo16" value = '1' class="col-3"><b class="num">1</b></button>
+        <button onclick="Solve('2')" id="demo17" value = '2' class="col-3"><b class="num">2</b></button>
+        <button onclick="Solve('3')" id="demo18" value = '3' class="col-3"><b class="num">3</b></button>
+        <button onclick="Result()" id="demo19"  value = '=' class="col-3"><b class="num">=</b></button>
+    </div>
+    </div>
+    <div class="local">
+        <div class="b"> History</div>
+        <textarea type ="number"  id="prasad1" class="text"></textarea>
+         <button  class="del" onclick="Delete()"> <i class="fa-solid fa-trash-can"></i></button>
+    </div>
+        <!-- <textarea id="prasad1"></textarea> -->
+    
+    </div>
+    <textarea id="prasad1"></textarea></div>
+    
+    
+   
+
+    <script>
+    // input.value=" ";
+         function Solve(val){
+            var v= document.getElementById("prasad");
+             v.value += val;
+        //  let x=document.getElementById("prasad").value;
+        //  let y= eval(x);
+        //  document.getElementById("prasad").value = y;
+} 
+
+        function Result(){
+            var num1 = document.getElementById("prasad").value;
+            var num2 = eval(num1);
+           document.getElementById("prasad").value = num2;
+           document.getElementById("prasad1").value = num2;
+
+            
+            
+        }
+        function Clear(){
+            var inp = document.getElementById("prasad");
+            inp.value='';
+            // addToHistory(' ');
+        }
+        function Back(){
+            var ev = document.getElementById("prasad");
+            ev.value = ev.value.slice(0,-1);
+        }
+        function Delete(){
+            var inp =document.getElementById("prasad1");
+            inp.value=" ";
+        }
+        // function addToHistory(value){
+        //     history += value;
+        //     document.getElementById("prasad1").innerText = history;
+        // }
+        
+            // var d = documment.getElementsById("prasad");
+            // document.getElementById("history").innerHTML = d;
+    
+        // let num=[];
+        // for(i=0; i<num.length; i++){
+            
+
+        // }
+
+        
+     
+    </script>
+</body>
+<style type="text/css">
+    *{
+        box-sizing: border-box;
+    }
+    html,body{
+        margin:0;
+        padding:0;
+    }
+    body{
+        background-color:lightgray;
+        position: fixed;
+    }
+      .container{
+        position:absolute;
+        /* margin-top: 10px; */
+        margin-top: 225px;
+        margin-left: 10px;
+        width: 1000px;
+        height: 200px;
+    }
+    nav{
+        display: flex;
+    }
+    .row::after{
+        content:"";
+        display: block;
+        clear: both;
+    }
+    button[class*="col-3"]{
+        float:left;
+        height:100px;
+        background-color:darkgray;
+        /* border-right: px solid transparent; */
+        /* border-bottom: px solid black; */
+        border: 1px solid ghostwhite;
+        
+
+    }
+    .col-3:hover{
+       background-color:lightslategray; 
+    }
+    .col-1 { width: 8.333333% }
+    .col-2 { width: 16.6666% }
+    .col-3 { width: 25% }
+    .col-4 { width: 33.3333% }
+    .col-5 { width: 41.6666% }
+    .col-6 { width: 50.% }
+    .col-7 { width: 58.333333% }
+    .col-8 { width: 66.66666% }
+    .col-9 { width: 75% }
+    .col-10 { width: 83.33333% }
+    .col-11 { width: 91.666666% }
+    .col-12 { width: 100% }
+.num{
+    margin-top: 50px;
+    /* float: center; */
+    /* text-align: right; */
+    font-size: 30px;
+    /* margin: 120px; */
+    /* margin-left: 51px; */
+    /* padding-top: 110px; */
+    /* padding-top: 50px; */
+    /* padding-left: 120px; */
+}
+
+
+input{
+    width: 1000px;
+    height: 150px;
+    margin-top: 2px;
+    /* border:1px solid black; */
+    /* position:fixed; */
+    font-size: 40px;
+    border: none;
+    margin-left: 10px;
+    
+}
+.back{
+    position: fixed;
+    width:1100px;
+    height:200px;
+    margin-top: 50px;
+    
+}
+.local{
+    background-color: antiquewhite;
+    margin-left: 1050px;
+    margin-top: 50px;
+    /* margin-left: 1200px; */
+    width: 400px;
+    height: 674px;
+    /* padding-top: 80px; */
+    text-align: center;
+}
+textarea{
+    background-color:azure;
+    /* margin-left: 10px; */
+    width: 400px;
+    height: 570px;
+    /* height:  */
+    font-size: 35px; ;
+    margin-top: 25px;
+    border: none;
+    /* margin-left: 10px; */
+}
+.b{
+    margin-top: 10x;
+    /* margin-left: 200px; */
+    /* margin-bottom: 100px; */
+    font-size: 40px;
+}
+#demo19{
+    background-color:darkseagreen;
+}
+.del{
+    border: none;
+    background-color: transparent;
+    font-size: 15px;
+    /* margin-left: 150px; */
+    float: right;
+}
+.pos{
+    margin-top: 10px;
+    position: absolute;
+}
+@media only screen and (max-width:400px){
+    input{
+        margin-left: 10px;
+        /* margin-right: 30px; */
+        width: 320px;
+        height: 30px;
+        }
+    .container{
+        width: 300px;
+        height: 100px;
+       margin-left: 10px;
+       /* height: 30px; */
+       margin-top: 100px;
+       
+    }
+.col-3{
+width: 200px;
+
+}
+button{
+    width:20px;
+    height:20px;
+
+}
+
+
+
+    
+</style>
+</html>
